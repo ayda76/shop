@@ -1,0 +1,26 @@
+.cartButton{
+background-color: rgb(68, 60, 62);
+border-radius: 30px;
+border: none;
+height: 60px;
+width: 70px;
+margin-top: 7px;
+}
+
+.amount{
+    background-color: rgb(143, 32, 32);
+    color: white;
+    font-size: 11px;
+  padding: 6px;
+    border-radius: 10px;
+
+  margin-left: -18px;
+  margin-top: -15px;
+position: absolute;
+}
+
+.icon {
+    font-size: 35px;
+    position: relative;
+  
+  }

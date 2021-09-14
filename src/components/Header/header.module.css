@@ -1,0 +1,82 @@
+.header{
+    background-color: rgb(155, 3, 3);
+ font-size: 18px;
+ color: white;
+ position: fixed;
+ width: 100%;
+ margin-top: -16px;
+ 
+}
+.header div{
+display: inline-block;
+margin-top: 10px;
+}
+ i{
+    color: white;
+    font-size: 20px;
+   
+    padding: 7px;
+}
+.headerItems{
+    display: inline-block;
+  margin-bottom: 20px;
+  margin-left: 40px;
+
+}
+.headerItems.date{
+  
+   color: white;
+
+
+}
+.icon{
+    border: 2px solid white;
+    
+    border-radius: 10px;
+padding: 7px;
+color: white;
+
+}
+/*.all{
+    padding: 9px;
+    background-color: rgb(68, 60, 62);
+    border-radius: 30px;
+border: none;
+height: 50px;
+width: 230px;
+color: white;
+font-size: 15px;
+}
+
+.children{
+    padding: 9px;
+    background-color: rgb(68, 60, 62);
+    border-radius: 30px;
+border: none;
+height: 50px;
+width: 230px;
+color: white;
+font-size: 15px;
+}
+
+.men{
+    padding: 9px;
+    background-color: rgb(68, 60, 62);
+    border-radius: 30px;
+border: none;
+height: 50px;
+width: 230px;
+color: white;
+font-size: 15px;
+}
+
+.women{
+    padding: 9px;
+    background-color: rgb(68, 60, 62);
+    border-radius: 30px;
+border: none;
+height: 50px;
+width: 230px;
+color: white;
+font-size: 15px;
+}*/

@@ -1,0 +1,46 @@
+.items{
+    display: block;
+    margin-left: 30px;
+   
+}
+
+.items li {
+    display: block;
+    list-style: none;
+  margin-top: 20px;
+  
+}
+
+
+.close{
+    border: 1px solid rgb(155, 3, 3);
+    color: rgb(155, 3, 3);
+  background-color: white;
+    border-radius: 25px;
+    padding-left: 10px;
+    padding-right: 10px;
+    font-size: 17px;
+    display: inline-block;
+    height: 50px;
+    margin-top: 5px;
+    margin-left: 200px;
+}
+.close:hover{  border: none;
+    color: white;
+    background-color: rgb(155, 3, 3);
+    border-radius: 25px;
+  }
+.order{
+    border: none;
+    color: white;
+    background-color: rgb(155, 3, 3);
+    border-radius: 25px;
+    padding-left: 10px;
+    padding-right: 10px;
+    font-size: 17px;
+    display: inline-block;
+    height: 50px;
+    margin-top: 5px;
+    margin-left: 5px;
+}
+ 

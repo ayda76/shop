@@ -1,0 +1,24 @@
+.items{
+    display: inline-block;
+    padding: 30px;
+    border: 1px solid gray;
+    border-radius: 5px;
+    box-shadow: 1px 1px  rgb(201, 201, 201);
+    margin-left: 10px;
+    margin-top: 10px;
+list-style: none;
+}
+.items img{
+    height: 150px;
+    width: 200px;
+    border-radius: 5px;
+    box-shadow: 1px 1px rgb(201, 201, 201);
+}
+
+.information li{
+display: block;
+list-style: none;
+font-size: 15px;
+padding: 5px;
+
+}
