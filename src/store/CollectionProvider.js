@@ -124,7 +124,9 @@ const allCollectionHandler = () =>{
 const  FilteredCollectionHandler = (items) =>{
     dispatchCol({type:'FILTERED' ,items:items,allproducts:defaultCollection})
 }
-
+if(reducedCol.items.length===0){
+    reducedCol.items= ctx.items;
+}
   const returnValue={
  defaultItems: ctx.items ,
 items:reducedCol.items,
