@@ -1,5 +1,8 @@
-import { useReducer } from 'react';
+import { useReducer ,useContext} from 'react';
 import CollectionContext from './context-collection';
+import DataContext from './context-data'
+
+/*
 import image1 from '../assets/fashion-6251535_1920.jpg';
 import image2 from '../assets/holiday-4369987_1920.jpg';
 import image3 from '../assets/people-2564803_1920.jpg';
@@ -31,159 +34,18 @@ const defaultProducts=[
         type:'cloths',
         price:10
     },
-    {
-        id:'t4',
-        img:image4,
-        name:'Tshirt',
-        size:'38-44',
-        type:'cloths',
-        price:40
-    },
-     {
-        id:'t5',
-        img:image5,
-        name:'dress',
-        size:'38-44',
-        type:'cloths',
-        price:190
-    },
-    {
-        id:'t6',
-        img:image6,
-        name:'dress',
-        size:'38-44',
-        type:'cloths',
-        price:70
-    }
-    , {
-        id:'t7',
-        img:image1,
-        name:'Tshirt',
-        size:'38-44',
-        type:'cloths',
-        price:100
-    },
-    {
-        id:'t8',
-        img:image1,
-        name:'Tshirt',
-        size:'38-44',
-        type:'cloths',
-        price:100
-    },
-    {
-        id:'t9',
-        img:image1,
-        name:'backpack',
-        size:'38-44',
-        type:'bags',
-        price:100
-    },
-    {
-        id:'t10',
-        img:image1,
-        name:'backpack',
-        size:'38-44',
-        type:'bags',
-        price:100
-    },
-    {
-        id:'t11',
-        img:image1,
-        name:'backpack',
-        size:'38-44',
-        type:'bags',
-        price:100
-    },
-    {
-        id:'t12',
-        img:image1,
-        name:'children',
-        size:'38-44',
-        type:'bags',
-        price:100
-    },
-    {
-        id:'t13',
-        img:image1,
-        name:'children',
-        size:'38-44',
-        type:'bags',
-        price:100
-    },
-    {
-        id:'t14',
-        img:image1,
-        name:'sport',
-        size:'38-44',
-        type:'shoes',
-        price:100
-    },
-    {
-        id:'t15',
-        img:image1,
-        name:'sport',
-        size:'38-44',
-        type:'shoes',
-        price:100
-    },
-    {
-        id:'t16',
-        img:image1,
-        name:'sport',
-        size:'38-44',
-        type:'shoes',
-        price:100
-    },
-    {
-        id:'t17',
-        img:image1,
-        name:'children',
-        size:'38-44',
-        type:'shoes',
-        price:100
-    },
-    {
-        id:'t18',
-        img:image1,
-        name:'children',
-        size:'38-44',
-        type:'shoes',
-        price:100
-    }, {
-        id:'t19',
-        img:image1,
-        name:'watch',
-        size:'38-44',
-        type:'accessories',
-        price:100
-    }, {
-        id:'t20',
-        img:image1,
-        name:'watch',
-        size:'38-44',
-        type:'accessories',
-        price:100
-    }, {
-        id:'t21',
-        img:image1,
-        name:'rings',
-        size:'38-44',
-        type:'accessories',
-        price:100
-    }
-];
-const defaultCollection={
-    items:defaultProducts
-   
-}
+  
+];*/
+
 
 const reducerCollection =(state,action)=>{
-    let arr={...defaultCollection};
-    state=arr;
+  //  let arr={...state.items};
+  //let arr={...action.allproducts.items}
+  //  state=arr;
 
 if(action.type==='cloths'){
-   const clothsCollection= state.items.filter((item)=>{ return item.type==='cloths'});
+ //  const clothsCollection= state.items.filter((item)=>{ return item.type==='cloths'});
+ const clothsCollection =action.allproducts.items.filter((item)=>{ return item.type==='cloths'});
    console.log(clothsCollection)
  
 
@@ -193,78 +55,78 @@ if(action.type==='cloths'){
    }
   
 }
-if(action.type==='bags'){  
+ if(action.type==='bags'){  
     
-    const bagsCollection= state.items.filter((item)=>{ return item.type==='bags'});
+  //  const bagsCollection= state.items.filter((item)=>{ return item.type==='bags'});
+    const bagsCollection =action.allproducts.items.filter((item)=>{ return item.type==='bags'});
 
 
-return {
-    items:bagsCollection,
-    
-}}
-if(action.type==='shoes'){
-   const shoesCollection= state.items.filter((item)=>{ return item.type==='shoes'});
+return { items:bagsCollection}
+}
+ if(action.type==='shoes'){
+
+ // const shoesCollection= state.items.filter((item)=>{ return item.type==='shoes'});
  
+ const shoesCollection =action.allproducts.items.filter((item)=>{ return item.type==='shoes'});
 
-    return {
-        items:shoesCollection,
-   
-    }
+    return {  items:shoesCollection  }
 
 }
 
-if(action.type==='accessories'){
-    const accessoriesCollection= state.items.filter((item)=>{ return item.type==='accessories'});
-  
+ if(action.type==='accessories'){
+   // const accessoriesCollection= state.items.filter((item)=>{ return item.type==='accessories'});
+   const accessoriesCollection =action.allproducts.filter((item)=>{ return item.type==='accessories'});
+
  
-     return {
-         items:accessoriesCollection,
-   
-     }
+     return {   items:accessoriesCollection }
  
  }
 
-if(action.type==='All'){
+ if(action.type==='All'){
   
-    return defaultCollection;
+    return {items:action.allproducts.items};
 }
-if(action.type==='FILTERED'){
+ if(action.type==='FILTERED'){
 
-    return {
-        items: action.items
-    }
+    return {  items: action.items   }
 }
 
-
-return defaultCollection;
+    return {items:action.allproducts.items}
 }
+
 function CollectionProvider(props){
+
+    const ctx = useContext( DataContext)
+    console.log("ctx",ctx)
+    const defaultCollection={
+        items:ctx.items
+         }
 
 const [reducedCol,dispatchCol]=useReducer(reducerCollection,defaultCollection);
 
 
 const ClothsCollectionHandler = () =>{
-    dispatchCol({type:'cloths'})
+    dispatchCol({type:'cloths',allproducts:defaultCollection})
 }
 const BagsCollectionHandler = () =>{
-    dispatchCol({type:'bags'})
+    dispatchCol({type:'bags',allproducts:defaultCollection})
 }
 const ShoesCollectionHandler = () =>{
-    dispatchCol({type:'shoes' })
+    dispatchCol({type:'shoes',allproducts:defaultCollection })
 }
 const AccessoriesCollectionHandler=()=>{
-    dispatchCol({type:'accessories'})
+    dispatchCol({type:'accessories',allproducts:defaultCollection})
 }
 const allCollectionHandler = () =>{
-    dispatchCol({type:'All'})
+    dispatchCol({type:'All',allproducts:defaultCollection})
 }
 
 const  FilteredCollectionHandler = (items) =>{
-    dispatchCol({type:'FILTERED' ,items:items})
+    dispatchCol({type:'FILTERED' ,items:items,allproducts:defaultCollection})
 }
 
   const returnValue={
- defaultItems: defaultProducts ,
+ defaultItems: ctx.items ,
 items:reducedCol.items,
 onfiltered:FilteredCollectionHandler,
 onCloths:ClothsCollectionHandler,

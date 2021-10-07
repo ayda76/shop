@@ -8,7 +8,7 @@ const ctx =useContext(CollectionContext);
 const searchedData = (event)=>{
     setSearchingData(event.target.value)
 }
-
+console.log('cccccccccccc',ctx.defaultItems)
 let searchData=ctx.defaultItems.filter((item) => {
     return Object.keys(item).some(key =>
        item[key].toString().toLowerCase().includes(searchingData.toString().toLowerCase()) 
