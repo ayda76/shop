@@ -1,0 +1,39 @@
+.form{
+    padding: 10px;
+}
+.form input{
+    width: 20vw;
+    margin-top: 10px;
+    display: block;
+    border: 1px solid gray;
+    border-radius: 5px;
+}
+.subButton{
+    margin-top: 10px;
+    margin-left: 10px;
+    padding: 10px;
+    border: none;
+    border-radius: 20px;
+    background-color: rgb(196, 43, 43);
+    color:white;
+
+}
+.subButton:hover{
+    border:1px solid rgb(196, 43, 43);
+    background-color: white;
+    color: rgb(196, 43, 43);
+    font-size: large;
+    font-weight: 600;
+}
+.cancel{
+    margin-top: 10px;
+    padding: 10px;
+    border-radius: 20px;
+    border:1px solid rgb(196, 43, 43);
+    background-color: white;
+    color: rgb(196, 43, 43);
+}
+.cancel:hover{
+    background-color: rgb(196, 43, 43);
+    color:white;
+}
