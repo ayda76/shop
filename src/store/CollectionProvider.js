@@ -46,13 +46,10 @@ const reducerCollection =(state,action)=>{
 if(action.type==='cloths'){
  //  const clothsCollection= state.items.filter((item)=>{ return item.type==='cloths'});
  const clothsCollection =action.allproducts.items.filter((item)=>{ return item.type==='cloths'});
-   console.log(clothsCollection)
+   console.log("cloths:",clothsCollection)
  
 
-   return {
-       items:clothsCollection,
-       
-   }
+   return { items:clothsCollection }
   
 }
  if(action.type==='bags'){  
@@ -106,6 +103,7 @@ const [reducedCol,dispatchCol]=useReducer(reducerCollection,defaultCollection);
 
 
 const ClothsCollectionHandler = () =>{
+    console.log('we got to handler')
     dispatchCol({type:'cloths',allproducts:defaultCollection})
 }
 const BagsCollectionHandler = () =>{
@@ -125,6 +123,7 @@ const  FilteredCollectionHandler = (items) =>{
     dispatchCol({type:'FILTERED' ,items:items,allproducts:defaultCollection})
 }
 if(reducedCol.items.length===0){
+    console.log('empty')
     reducedCol.items= ctx.items;
 }
   const returnValue={

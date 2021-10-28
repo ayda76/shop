@@ -10,9 +10,9 @@ function Menu(){
       
       
       if(category==='cloths'){
-          ctx.onCloths();
-      
-         
+          console.log('hey there')
+          ctx.onCloths();  
+          console.log('this is cloths:',ctx.items)
       }
       if(category==='bags'){
           ctx.onBags();

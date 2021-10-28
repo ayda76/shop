@@ -4,6 +4,7 @@ import classes from './header.module.css';
 import CollectionContext from '../../store/context-collection';
 import Menu from './Menu/Menu';
 import Search from './Search/Search';
+import {Link} from 'react-router-dom'
 function Header(props){
     const ctx= useContext(CollectionContext);
    const date= new Date();
@@ -18,7 +19,7 @@ function Header(props){
                 <div className={classes.headerItems.date}><i class="far fa-calendar-alt"></i>{`${year}.${month}.${day}`}</div>
                 <div className={classes.headerItems}><Menu/></div>
                 <div className={classes.headerItems}><Search/></div>
-                <div className={classes.headerItems}><div className={classes.icon}><i className="fas fa-user"></i> sign in</div> </div>
+                <div className={classes.headerItems}><Link to="/login"><div className={classes.icon}><i className="fas fa-user"></i> sign in</div></Link> </div>
                 
                 <div className={classes.headerItems}><CartButton onClick={props.onClick}/></div>
                

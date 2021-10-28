@@ -7,7 +7,7 @@ import CollectionContext from '../../store/context-collection';
 function Products(props){
 const ctx=useContext(CollectionContext);
 
-console.log(ctx);
+console.log("items in product",ctx.items);
 
     const productItems=ctx.items.map((item)=>(
     <ProductItem

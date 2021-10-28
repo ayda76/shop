@@ -2,7 +2,7 @@
     background-color: rgb(155, 3, 3);
  font-size: 18px;
  color: white;
- position: fixed;
+ position: relative;
  width: 100%;
  margin-top: -16px;
  
