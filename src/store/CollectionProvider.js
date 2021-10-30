@@ -47,19 +47,20 @@ const reducerCollection =(state,action)=>{
 
 if(action.type==='cloths'){
     console.log("first state:",state.items)
+    
  //  const clothsCollection= state.items.filter((item)=>{ return item.type==='cloths'});
- const clothsCollection =state.items.filter((item)=>{ return item.type==='cloths'});
+ const clothsCollection =action.all.filter((item)=>{ return item.type==='cloths'});
    console.log("cloths:",clothsCollection)
- 
+   
 
    return  {items:clothsCollection    }  
   
 }
  if(action.type==='bags'){  
-    
+    console.log("bag state:",state.items)
   //  const bagsCollection= state.items.filter((item)=>{ return item.type==='bags'});
-  const bagsCollection =state.items.filter((item)=>{ return item.type==='bags'});
-
+  const bagsCollection =action.all.filter((item)=>{ return item.type==='bags'});
+  console.log("bags:",bagsCollection)
 
 return   {items:bagsCollection    } 
 }
@@ -67,7 +68,7 @@ return   {items:bagsCollection    }
 
  // const shoesCollection= state.items.filter((item)=>{ return item.type==='shoes'});
  
- const shoesCollection =state.items.filter((item)=>{ return item.type==='shoes'});
+ const shoesCollection =action.all.filter((item)=>{ return item.type==='shoes'});
 
     return   {items:shoesCollection    } 
 
@@ -75,7 +76,7 @@ return   {items:bagsCollection    }
 
  if(action.type==='accessories'){
    // const accessoriesCollection= state.items.filter((item)=>{ return item.type==='accessories'});
-   const accessoriesCollection=state.items.filter((item)=>{ return item.type==='accessories'});
+   const accessoriesCollection=action.all.filter((item)=>{ return item.type==='accessories'});
 
  
      return  {items:accessoriesCollection   }
@@ -84,14 +85,14 @@ return   {items:bagsCollection    }
 
  if(action.type==='All'){
   
-    return {items:state.items}
+    return {items:action.all}
 }
  if(action.type==='FILTERED'){
 
     return {items:action.items   }
 }
 
-    return {items:state.items}
+    return {items:action.all}
 }
 
 function CollectionProvider(props){
@@ -104,16 +105,16 @@ console.log("ctx",ctx)
 
 const ClothsCollectionHandler = () =>{
     console.log('we got to handler')
-    dispatchCol({type:'cloths'})
+    dispatchCol({type:'cloths',all:defaultCollection.items})
 }
 const BagsCollectionHandler = () =>{
-    dispatchCol({type:'bags'})
+    dispatchCol({type:'bags', all:defaultCollection.items})
 }
 const ShoesCollectionHandler = () =>{
-    dispatchCol({type:'shoes' })
+    dispatchCol({type:'shoes' ,all:defaultCollection.items})
 }
 const AccessoriesCollectionHandler=()=>{
-    dispatchCol({type:'accessories'})
+    dispatchCol({type:'accessories',all:defaultCollection.items})
 }
 const allCollectionHandler = () =>{
     dispatchCol({type:'All'})

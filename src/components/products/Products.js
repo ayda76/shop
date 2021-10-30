@@ -6,7 +6,7 @@ import CollectionContext from '../../store/context-collection';
 
 function Products(props){
 const ctx=useContext(CollectionContext);
-const[x,setX]=useState(false)
+//const[x,setX]=useState(false)
 let productItems=[];
 
 console.log("items in product",ctx.items);
