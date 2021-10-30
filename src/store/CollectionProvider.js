@@ -36,7 +36,9 @@ const defaultProducts=[
     },
   
 ];*/
-
+const defaultCollection={
+    items:[]
+     }
 
 const reducerCollection =(state,action)=>{
   //  let arr={...state.items};
@@ -44,88 +46,83 @@ const reducerCollection =(state,action)=>{
   //  state=arr;
 
 if(action.type==='cloths'){
+    console.log("first state:",state.items)
  //  const clothsCollection= state.items.filter((item)=>{ return item.type==='cloths'});
- const clothsCollection =action.allproducts.items.filter((item)=>{ return item.type==='cloths'});
+ const clothsCollection =state.items.filter((item)=>{ return item.type==='cloths'});
    console.log("cloths:",clothsCollection)
  
 
-   return { items:clothsCollection }
+   return  {items:clothsCollection    }  
   
 }
  if(action.type==='bags'){  
     
   //  const bagsCollection= state.items.filter((item)=>{ return item.type==='bags'});
-    const bagsCollection =action.allproducts.items.filter((item)=>{ return item.type==='bags'});
+  const bagsCollection =state.items.filter((item)=>{ return item.type==='bags'});
 
 
-return { items:bagsCollection}
+return   {items:bagsCollection    } 
 }
  if(action.type==='shoes'){
 
  // const shoesCollection= state.items.filter((item)=>{ return item.type==='shoes'});
  
- const shoesCollection =action.allproducts.items.filter((item)=>{ return item.type==='shoes'});
+ const shoesCollection =state.items.filter((item)=>{ return item.type==='shoes'});
 
-    return {  items:shoesCollection  }
+    return   {items:shoesCollection    } 
 
 }
 
  if(action.type==='accessories'){
    // const accessoriesCollection= state.items.filter((item)=>{ return item.type==='accessories'});
-   const accessoriesCollection =action.allproducts.filter((item)=>{ return item.type==='accessories'});
+   const accessoriesCollection=state.items.filter((item)=>{ return item.type==='accessories'});
 
  
-     return {   items:accessoriesCollection }
+     return  {items:accessoriesCollection   }
  
  }
 
  if(action.type==='All'){
   
-    return {items:action.allproducts.items};
+    return {items:state.items}
 }
  if(action.type==='FILTERED'){
 
-    return {  items: action.items   }
+    return {items:action.items   }
 }
 
-    return {items:action.allproducts.items}
+    return {items:state.items}
 }
 
 function CollectionProvider(props){
-
     const ctx = useContext( DataContext)
-    console.log("ctx",ctx)
-    const defaultCollection={
-        items:ctx.items
-         }
+    defaultCollection.items=ctx.items;
+const [reducedCol,dispatchCol]=useReducer(reducerCollection, defaultCollection);
 
-const [reducedCol,dispatchCol]=useReducer(reducerCollection,defaultCollection);
 
+console.log("ctx",ctx)
 
 const ClothsCollectionHandler = () =>{
     console.log('we got to handler')
-    dispatchCol({type:'cloths',allproducts:defaultCollection})
+    dispatchCol({type:'cloths'})
 }
 const BagsCollectionHandler = () =>{
-    dispatchCol({type:'bags',allproducts:defaultCollection})
+    dispatchCol({type:'bags'})
 }
 const ShoesCollectionHandler = () =>{
-    dispatchCol({type:'shoes',allproducts:defaultCollection })
+    dispatchCol({type:'shoes' })
 }
 const AccessoriesCollectionHandler=()=>{
-    dispatchCol({type:'accessories',allproducts:defaultCollection})
+    dispatchCol({type:'accessories'})
 }
 const allCollectionHandler = () =>{
-    dispatchCol({type:'All',allproducts:defaultCollection})
+    dispatchCol({type:'All'})
 }
 
 const  FilteredCollectionHandler = (items) =>{
-    dispatchCol({type:'FILTERED' ,items:items,allproducts:defaultCollection})
+    dispatchCol({type:'FILTERED' ,items:items})
 }
-if(reducedCol.items.length===0){
-    console.log('empty')
-    reducedCol.items= ctx.items;
-}
+console.log('empty:',reducedCol.items)
   const returnValue={
  defaultItems: ctx.items ,
 items:reducedCol.items,

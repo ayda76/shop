@@ -1,3 +1,9 @@
+.row{
+    margin-top: 50px;
+    display: flex;
+    width: 70vw;
+   margin-left: 14vw;
+}
 .inputs{
     display: block;
     margin-top: 7px;
@@ -7,13 +13,17 @@
     border:1px solid gray;
     color: gray;
     text-align: center;
-    border-radius: 5px;
+    border-radius: 7px;
+    width: 30vw;
+    height: 3.5vw;
 }
 .formsign{
-    margin-top: 20px;
+    flex:60%;
+  
     text-align: center;
-    border-radius: 20px;
-    background-color: rgb(187, 185, 185);
+    border-radius: 0px 30px  30px 0px ;
+    height: 70vh; 
+    background-color: #2b4552;
     width: 20vw;
     padding: 10px;
 }
@@ -21,6 +31,25 @@
     margin-top: 7px;
     border: none;
     border-radius: 20px;
-    padding: 7px;
+    padding: 10px;
+    background-color: rgb(255, 174, 0);
+    color: #2b4552;
+    font-weight: 600;
+
+}
+.formsign h1{
+    color: white;
+    margin-bottom: 20px;
+}
+.image{
+   height: 70vh; 
+   flex:40%;
+   width: 20vw;
+   border-radius: 30px  0px  0px 30px  ;
+}
+.inputs p{
+   text-decoration: none;
+    color: white;
+    list-style: none;
 
 }

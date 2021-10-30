@@ -29,7 +29,7 @@ const [isVisibel,setVisibel]=useState(false);
         <Router>
     {isVisibel &&  <Cart onClick={closeHandler}/>} 
 
-    <Header onClick={showHandler}/>
+    
       <Switch>
       <Route path="/" exact   component={Page }/>
       <Route path="/login" component={Login}/>
