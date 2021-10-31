@@ -5,7 +5,9 @@ import CollectionContext from '../../store/context-collection';
 import Menu from './Menu/Menu';
 import Search from './Search/Search';
 import {Link} from 'react-router-dom'
+import UserContext from '../../store/context-userlog';
 function Header(props){
+    const context = useContext(UserContext)
     const ctx= useContext(CollectionContext);
    const date= new Date();
    console.log(date.toString())
@@ -22,7 +24,7 @@ function Header(props){
                 <div className={classes.headerItems}><Link to="/login"><div className={classes.icon}><i className="fas fa-user"></i> sign in</div></Link> </div>
                 
                 <div className={classes.headerItems}><CartButton onClick={props.onClick}/></div>
-               
+                <div className={classes.headerItems}>Hello {context.user.name}</div>
 
             </div>
          

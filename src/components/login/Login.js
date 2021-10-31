@@ -1,9 +1,10 @@
-import React,{useState} from 'react'
+import React,{useState,useContext} from 'react'
 import {Link } from 'react-router-dom'
 import styles from './login.module.css'
 import image from './../../assets/city-4991094_1920.jpg'
-
+import UserContext from '../../store/context-userlog'
 function Login() {
+    const ctx = useContext(UserContext);
 const [users, setusers] = useState([]);
 const [username, setusername] = useState('');
 const [password, setpassword] = useState('');
@@ -40,7 +41,10 @@ const user={
 for(let i in users){
     if(users[i].username===user.username&& users[i].password===user.password){
      setLoggedin(true);
-    }else{
+     ctx.callUser(users[i]);
+
+
+    }else if(i===users.length && users[i].username!==user.username&& users[i].password===user.password){
 setLogProblem(false);
     }
 }
@@ -65,7 +69,7 @@ setLogProblem(false);
 
            </form>
            {
-             loggedIn&&<p style={{color:'green'}}>you are logged in  successfully!</p>  
+             loggedIn&&  <p style={{color:'green'}}>you are logged in  successfully!</p>  
            }
            {!logProblem&& <p style={{color:'red'}}>!!!!your information is not valid!!!!</p>}
            </div>

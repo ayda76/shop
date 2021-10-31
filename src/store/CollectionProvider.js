@@ -117,11 +117,11 @@ const AccessoriesCollectionHandler=()=>{
     dispatchCol({type:'accessories',all:defaultCollection.items})
 }
 const allCollectionHandler = () =>{
-    dispatchCol({type:'All'})
+    dispatchCol({type:'All',all:defaultCollection.items})
 }
 
 const  FilteredCollectionHandler = (items) =>{
-    dispatchCol({type:'FILTERED' ,items:items})
+    dispatchCol({type:'FILTERED' ,items:items,all:defaultCollection.items})
 }
 console.log('empty:',reducedCol.items)
   const returnValue={

@@ -50,7 +50,7 @@ body:orderItem
 
  }
     return(
-      <Modal>
+     
 
         <ul className={classes.items}>
           <li>  <h3> Total Amount:{ctxCart.totalAmount}$</h3></li>
@@ -66,7 +66,7 @@ body:orderItem
         </ul>
        
         
-      </Modal>
+   
     );
 }
 export default Cart;

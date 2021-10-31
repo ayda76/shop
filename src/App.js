@@ -10,6 +10,7 @@ import Page from './Page';
 import {BrowserRouter as Router,Switch,Route} from "react-router-dom";
 import Header from './components/Header/Header';
 import CollectionProvider from './store/CollectionProvider';
+import UserContextProvider from './store/UserContextProvider';
 //import CartProvider from './store/CartProvider';
 function App() {
 const [isVisibel,setVisibel]=useState(false);
@@ -24,8 +25,10 @@ const [isVisibel,setVisibel]=useState(false);
   return (
     
       <ErrorBoundary>
+        <UserContextProvider>
         <DataContextProvider>
           <CollectionProvider>
+
         <Router>
     {isVisibel &&  <Cart onClick={closeHandler}/>} 
 
@@ -34,10 +37,12 @@ const [isVisibel,setVisibel]=useState(false);
       <Route path="/" exact   component={Page }/>
       <Route path="/login" component={Login}/>
       <Route path="/signup" component={SignUp}/>
+      <Route path="/cart" component={Cart}/>
       </Switch>
       </Router>
       </CollectionProvider>
       </DataContextProvider>
+      </UserContextProvider>
       </ErrorBoundary>
      
   );
