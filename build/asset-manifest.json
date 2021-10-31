@@ -1,0 +1,26 @@
+{
+  "files": {
+    "main.css": "/static/css/main.699daaf8.chunk.css",
+    "main.js": "/static/js/main.d0abe27b.chunk.js",
+    "main.js.map": "/static/js/main.d0abe27b.chunk.js.map",
+    "runtime-main.js": "/static/js/runtime-main.3bba0b4c.js",
+    "runtime-main.js.map": "/static/js/runtime-main.3bba0b4c.js.map",
+    "static/css/2.818011ed.chunk.css": "/static/css/2.818011ed.chunk.css",
+    "static/js/2.84495f5a.chunk.js": "/static/js/2.84495f5a.chunk.js",
+    "static/js/2.84495f5a.chunk.js.map": "/static/js/2.84495f5a.chunk.js.map",
+    "index.html": "/index.html",
+    "static/css/2.818011ed.chunk.css.map": "/static/css/2.818011ed.chunk.css.map",
+    "static/css/main.699daaf8.chunk.css.map": "/static/css/main.699daaf8.chunk.css.map",
+    "static/js/2.84495f5a.chunk.js.LICENSE.txt": "/static/js/2.84495f5a.chunk.js.LICENSE.txt",
+    "static/media/city-4991094_1920.ed8b4311.jpg": "/static/media/city-4991094_1920.ed8b4311.jpg",
+    "static/media/fashion-6251535_1920.13ee6203.jpg": "/static/media/fashion-6251535_1920.13ee6203.jpg",
+    "static/media/people-2567915_1920.8f4d30a1.jpg": "/static/media/people-2567915_1920.8f4d30a1.jpg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.3bba0b4c.js",
+    "static/css/2.818011ed.chunk.css",
+    "static/js/2.84495f5a.chunk.js",
+    "static/css/main.699daaf8.chunk.css",
+    "static/js/main.d0abe27b.chunk.js"
+  ]
+}
