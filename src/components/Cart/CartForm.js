@@ -1,6 +1,8 @@
 import React,{useState} from 'react'
 import styles from './CartForm.module.css'
+
 function CartForm(props) {
+    
 const [name,setName]=useState('');
 const [phone,setPhone]=useState('');
 const [postalcode,setPostalcode]=useState('');

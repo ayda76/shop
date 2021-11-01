@@ -1,12 +1,17 @@
 import React,{useContext,useState} from 'react';
-import Modal from '../UI/Modal';
+//import Modal from '../UI/Modal';
 import classes from './Cart.module.css';
 import CartItem from './CartItem';
 import CartContext from '../../store/contex-cart';
-import CartForm from './CartForm';
+//import CartForm from './CartForm';
 import useHttp from '../../custom-hooks/use-http';
+import UserContext from '../../store/context-userlog';
+import {Link} from'react-router-dom'
 function Cart(props){
- const[showFrom,setShowForm]= useState(false);
+  const context = useContext(UserContext);
+// const[showFrom,setShowForm]= useState(false);
+const[state,setState]= useState(true);
+const[afterLogin,setafterLogin]= useState(true);
  const {fetchingFunction:fetchData}= useHttp();
 const ctxCart=useContext(CartContext);
 const addHandler =(item)=>{
@@ -34,32 +39,50 @@ onDelete={deleteHandler.bind(null,item.id)}
  if(cartItems.length>0){
 status=true;
  }
- const openForm=()=>{
+/* const openForm=()=>{
   setShowForm((pre)=>{ return !pre});
- }
+ }*/
 
- const submitOrder=(orderData)=>{
+
+ const submitOrder=()=>{
+   console.log("this user",context.user)
+   if(context.user.length!==null){
+     
 const orderItem={
-  customer:orderData,
+  customer:context.user,
   order:ctxCart.items
 }
+
 fetchData({url:"https://onlinestore-ce20c-default-rtdb.firebaseio.com/orders.json",
 method:'POST',
 body:orderItem
 },()=>{});
+setafterLogin(false);
+}else{
+ setState(false)
+console.log("here is not login")
 
+}
  }
+
+ // {showFrom &&    <CartForm getOrder={submitOrder} onClose={props.onClick}/>}
+ //{!showFrom &&  <button onClick={props.onClick} className={classes.close}>close</button>}
+            
+ //{!showFrom &&status && <button className={classes.order} onClick={openForm}>order</button>}
+
     return(
      
 
         <ul className={classes.items}>
-          <li>  <h3> Total Amount:{ctxCart.totalAmount}$</h3></li>
-           {cartItems}
-          <li> 
-            {!showFrom &&  <button onClick={props.onClick} className={classes.close}>close</button>}
+          <li> {afterLogin&& <h3> Total Amount:{ctxCart.totalAmount}$</h3>}</li>
+           {afterLogin&& cartItems}
+          <li>  
+            {!afterLogin &&<p>Your order is submited!</p>}
+           {!state&& <Link to="/login"><button className={classes.order}>first you should log in</button></Link>}
+             {state&&  <button onClick={props.onClick} className={classes.close}>close</button>}
             
-            {!showFrom &&status && <button className={classes.order} onClick={openForm}>order</button>}
-        {showFrom &&    <CartForm getOrder={submitOrder} onClose={props.onClick}/>}
+             {state&&  <button className={classes.order} onClick={submitOrder}>order</button>}
+       
      
           </li>
        
