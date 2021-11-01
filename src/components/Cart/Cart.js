@@ -6,7 +6,8 @@ import CartContext from '../../store/contex-cart';
 //import CartForm from './CartForm';
 import useHttp from '../../custom-hooks/use-http';
 import UserContext from '../../store/context-userlog';
-import {Link} from'react-router-dom'
+import {Link} from'react-router-dom';
+import Header from '../Header/Header';
 function Cart(props){
   const context = useContext(UserContext);
 // const[showFrom,setShowForm]= useState(false);
@@ -43,10 +44,9 @@ status=true;
   setShowForm((pre)=>{ return !pre});
  }*/
 
-
  const submitOrder=()=>{
    console.log("this user",context.user)
-   if(context.user.length!==null){
+   if(context.user.length!==0){
      
 const orderItem={
   customer:context.user,
@@ -57,6 +57,7 @@ fetchData({url:"https://onlinestore-ce20c-default-rtdb.firebaseio.com/orders.jso
 method:'POST',
 body:orderItem
 },()=>{});
+ctxCart.onSubmitOrder();
 setafterLogin(false);
 }else{
  setState(false)
@@ -72,6 +73,7 @@ console.log("here is not login")
 
     return(
      
+<React.Fragment>
 
         <ul className={classes.items}>
           <li> {afterLogin&& <h3> Total Amount:{ctxCart.totalAmount}$</h3>}</li>
@@ -88,7 +90,7 @@ console.log("here is not login")
        
         </ul>
        
-        
+        </React.Fragment>
    
     );
 }

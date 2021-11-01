@@ -11,6 +11,7 @@ import {BrowserRouter as Router,Switch,Route} from "react-router-dom";
 import Header from './components/Header/Header';
 import CollectionProvider from './store/CollectionProvider';
 import UserContextProvider from './store/UserContextProvider';
+import Products from './components/products/Products'
 //import CartProvider from './store/CartProvider';
 function App() {
 const [isVisibel,setVisibel]=useState(false);
@@ -29,12 +30,16 @@ const [isVisibel,setVisibel]=useState(false);
         <DataContextProvider>
           <CollectionProvider>
 
+          
+           
+          
         <Router>
     {isVisibel &&  <Cart onClick={closeHandler}/>} 
 
-    
+    <Header />
       <Switch>
       <Route path="/" exact   component={Page }/>
+      <Route path="/products" exact   component={Products }/>
       <Route path="/login" component={Login}/>
       <Route path="/signup" component={SignUp}/>
       <Route path="/cart" component={Cart}/>

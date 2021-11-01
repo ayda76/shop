@@ -4,7 +4,8 @@ border-radius: 30px;
 border: none;
 height: 60px;
 width: 70px;
-margin-top: 7px;
+margin-top: 10px;
+padding: 0;
 }
 
 .amount{
@@ -12,10 +13,12 @@ margin-top: 7px;
     color: white;
     font-size: 11px;
   padding: 6px;
+  padding-right: 8px;
+  padding-left: 8px;
     border-radius: 10px;
 
   margin-left: -18px;
-  margin-top: -15px;
+
 position: absolute;
 }
 

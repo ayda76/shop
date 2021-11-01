@@ -19,12 +19,12 @@ function Header(props){
       
             <div className={classes.header}>
                 <div className={classes.headerItems.date}><i class="far fa-calendar-alt"></i>{`${year}.${month}.${day}`}</div>
-                <div className={classes.headerItems}><Menu/></div>
+               <Link to="/products"> <div className={classes.headerItems}><Menu/></div></Link>
                 <div className={classes.headerItems}><Search/></div>
                 <div className={classes.headerItems}><Link to="/login"><div className={classes.icon}><i className="fas fa-user"></i> sign in</div></Link> </div>
                 
                 <div className={classes.headerItems}><CartButton onClick={props.onClick}/></div>
-                <div className={classes.headerItems}>Hello {context.user.name}</div>
+               <Link to="/" style={{ textDecoration: 'none' ,color:'white' }}> <div className={classes.headerItems}>{context.user.name} <i class="fas fa-home"></i></div></Link>
 
             </div>
          

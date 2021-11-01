@@ -54,6 +54,9 @@ if(action.type==='DELETE'){
       return
     }
 }
+if(action.type==='SUBMITED'){
+    return defaultItems
+}
 
 return defaultItems;
 
@@ -67,12 +70,15 @@ const addItemHandler =(item)=>{
 const removeItemHandler =(id)=>{
     dispatchCart({type:'DELETE', id:id})
 }
-
+const submitOrderHandler =()=>{
+    dispatchCart({type:'SUBMITED'})
+}
 const returnValue={
     items:reducedItems.items,
     totalAmount:reducedItems.totalAmount,
     onAdd:addItemHandler,
-    onDelete:removeItemHandler
+    onDelete:removeItemHandler,
+    onSubmitOrder:submitOrderHandler
 
 }
 

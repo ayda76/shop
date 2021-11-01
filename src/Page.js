@@ -7,9 +7,7 @@ function Page(props) {
     return (
       
              < CollectionProvider  >
-             <div >
-             <Header onClick={props.show} />
-      </div>
+           
       <div className="page">
       <Products/>
       </div>

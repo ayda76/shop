@@ -1,7 +1,7 @@
 import React,{useState} from 'react'
 import UserContext from './context-userlog'
 function UserContextProvider(props) {
-   const[user,setuser]= useState({});
+   const[user,setuser]= useState([]);
    const callUser=(user)=>{
        setuser(user);
    }
