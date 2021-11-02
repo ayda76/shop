@@ -1,12 +1,12 @@
 import React from 'react';
-import image1 from '../../assets/fashion-6251535_1920.jpg';
+
 import ProductForm from './ProductForm';
 import classes from './productItem.module.css';
 function ProductItem(props){
 
     return(
         <li className={classes.items}>
-            <div><img src={image1}/></div>
+            <div><img src={require(`./../../assets/${props.image}`).default}/></div>
             <div className={classes.information}>
                 <ul>
                     <li>name:{props.name}</li>
@@ -14,7 +14,7 @@ function ProductItem(props){
                     <li>price:{props.price}$</li>
                     <li><ProductForm
                     id={props.id} 
-                    img={image1}
+                    image={props.image}
                     name={props.name}
                      size={props.size}
                       type={props.type}

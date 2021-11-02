@@ -1,7 +1,7 @@
 import React,{useState,useContext} from 'react'
 import {Link } from 'react-router-dom'
 import styles from './login.module.css'
-import image from './../../assets/city-4991094_1920.jpg'
+import image from './../../assets/people-259.jpg'
 import UserContext from '../../store/context-userlog'
 function Login() {
     const ctx = useContext(UserContext);

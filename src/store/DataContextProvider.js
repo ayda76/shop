@@ -14,7 +14,7 @@ function DataContextProvider(props) {
                     name:data[key].name,
                     price:data[key].price,
                     type:data[key].type,
-                  
+                    image:data[key].image
                   
                 })
             }

@@ -5,6 +5,7 @@ const CollectionContext=React.createContext(  {
     name:'',
     type:'',
     price:0,
+    image:'',
     defaultItems:[],
     items:[],
     onCloths:()=>{},

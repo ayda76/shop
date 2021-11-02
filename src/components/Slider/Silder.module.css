@@ -1,0 +1,12 @@
+.images{
+    width: 100%;
+    height: 80vh;
+    position: relative;
+    background-size:cover ;
+}
+.buttonleft{
+    margin-left: 0;
+}
+.buttonright{
+    margin-right: 0;
+}

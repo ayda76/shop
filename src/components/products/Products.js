@@ -15,7 +15,7 @@ productItems=ctx.items.map((item)=>(
      key={item.id}
      id={item.id}
       name={item.name}
-       img={item.img}
+       image={item.image}
         size={item.size}
         type={item.type}
         price={item.price}

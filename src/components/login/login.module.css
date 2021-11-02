@@ -23,7 +23,7 @@
     text-align: center;
     border-radius: 0px 30px  30px 0px ;
     height: 70vh; 
-    background-color: #000c16;
+    background-color: #0d0c11;
     width: 17vw;
     padding: 10px;
 }
@@ -32,7 +32,7 @@
     border: none;
     border-radius: 20px;
     padding: 15px;
-    background-color: #feb5bd;
+    background-color: #ecbd8c;
     color: #000c16;
     font-weight: 600;
 
@@ -46,6 +46,7 @@
    flex:50%;
    width: 17vw;
    border-radius: 30px  0px  0px 30px  ;
+   filter: brightness(80%);
 }
 .inputs p{
    text-decoration: none;

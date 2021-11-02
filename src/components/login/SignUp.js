@@ -1,7 +1,7 @@
 import React,{useState} from 'react'
 import { Link } from 'react-router-dom'
 import styles from './signup.module.css'
-import image from './../../assets/people-2567915_1920.jpg'
+import image from './../../assets/people-2.jpg'
 function SignUp() {
 const [name,setname]=useState('');
 const [username,setusername]=useState('');
