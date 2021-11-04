@@ -5,12 +5,14 @@ import '../../../node_modules/bootstrap/dist/css/bootstrap.min.css'
 import CollectionContext from '../../store/context-collection'
 import styles from './Silder.module.css'
 function Silder() {
-
     const ctx = useContext(CollectionContext)
-   // console.log("ppppppppp",ctx)
    const photos= ctx.items.map((item)=>(item.image));
    const defaultPicture=`${photos[photos.length-1]}`;
-   const[image,setImage]= useState(defaultPicture);
+   const[image,setImage]= useState(defaultPicture); 
+    
+   console.log("sssssss",defaultPicture)
+   console.log("sssssss",photos)
+   
    console.log("sssssss",`${photos[photos.length-1]}`)
 const left=()=>{
     if(image===photos[photos.length-1]){

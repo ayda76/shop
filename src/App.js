@@ -1,4 +1,4 @@
-import React,{useState} from 'react';
+import React,{useState,useContext,useEffect} from 'react';
 import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
 import Cart from './components/Cart/Cart';
@@ -12,16 +12,19 @@ import Header from './components/Header/Header';
 import CollectionProvider from './store/CollectionProvider';
 import UserContextProvider from './store/UserContextProvider';
 import Products from './components/products/Products'
+import CartProvider from './store/CartProvider';
+//import CartProvider from './store/CartProvider';
+//import CartContext from './store/contex-cart'
+//import Modal from './components/UI/Modal';
 //import CartProvider from './store/CartProvider';
 function App() {
 const [isVisibel,setVisibel]=useState(false);
-  const closeHandler =()=>{
-    setVisibel(false);
-  }
- const showHandler =()=>{
-
-  setVisibel(true);
+//const context = useContext(CartContext)
+const closeHandler =()=>{
+  setVisibel(false);
+ // yyy=false;
  }
+
 
   return (
     
@@ -30,12 +33,10 @@ const [isVisibel,setVisibel]=useState(false);
         <DataContextProvider>
           <CollectionProvider>
 
-          
-           
-          
+          <CartProvider>
         <Router>
     {isVisibel &&  <Cart onClick={closeHandler}/>} 
-
+     
     <Header />
       <Switch>
       <Route path="/" exact   component={Page }/>
@@ -45,6 +46,7 @@ const [isVisibel,setVisibel]=useState(false);
       <Route path="/cart" component={Cart}/>
       </Switch>
       </Router>
+    </CartProvider>
       </CollectionProvider>
       </DataContextProvider>
       </UserContextProvider>

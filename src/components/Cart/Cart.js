@@ -7,7 +7,8 @@ import CartContext from '../../store/contex-cart';
 import useHttp from '../../custom-hooks/use-http';
 import UserContext from '../../store/context-userlog';
 import {Link} from'react-router-dom';
-import Header from '../Header/Header';
+import DataContextProvider from '../../store/DataContextProvider';
+//import Header from '../Header/Header';
 function Cart(props){
   const context = useContext(UserContext);
 // const[showFrom,setShowForm]= useState(false);
@@ -27,7 +28,7 @@ const cartItems=ctxCart.items.map((item)=>
  <CartItem 
  key={item.id}
  id={item.id}
- img={item.img}
+ image={item.image}
  name={item.name}
  size={item.size}
  price={item.price}
@@ -59,11 +60,13 @@ body:orderItem
 },()=>{});
 ctxCart.onSubmitOrder();
 setafterLogin(false);
+
 }else{
  setState(false)
 console.log("here is not login")
 
 }
+
  }
 
  // {showFrom &&    <CartForm getOrder={submitOrder} onClose={props.onClick}/>}
@@ -74,10 +77,12 @@ console.log("here is not login")
     return(
      
 <React.Fragment>
-
+<DataContextProvider>
         <ul className={classes.items}>
           <li> {afterLogin&& <h3> Total Amount:{ctxCart.totalAmount}$</h3>}</li>
            {afterLogin&& cartItems}
+           <p>{ctxCart.error}</p>
+
           <li>  
             {!afterLogin &&<p>Your order is submited!</p>}
            {!state&& <Link to="/login"><button className={classes.order}>first you should log in</button></Link>}
@@ -89,7 +94,7 @@ console.log("here is not login")
           </li>
        
         </ul>
-       
+        </DataContextProvider>
         </React.Fragment>
    
     );

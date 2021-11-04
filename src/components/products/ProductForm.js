@@ -15,9 +15,8 @@ const submitHandler=(event)=>{
 event.preventDefault();
     const product={
         id:props.id,
-        img:props.image,
+        image:props.image,
         name:props.name,
-        size:props.size,
         price:props.price,
         amount:Number
     }

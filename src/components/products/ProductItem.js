@@ -1,9 +1,10 @@
-import React from 'react';
-
+import React,{useContext} from 'react';
+import CartContext from '../../store/contex-cart'
 import ProductForm from './ProductForm';
 import classes from './productItem.module.css';
 function ProductItem(props){
-
+   
+     
     return(
         <li className={classes.items}>
             <div><img src={require(`./../../assets/${props.image}`).default}/></div>
@@ -20,6 +21,7 @@ function ProductItem(props){
                       type={props.type}
                       price={props.price}
                       /></li>
+                      
                 </ul>
             </div>
            

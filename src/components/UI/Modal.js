@@ -5,7 +5,7 @@ import classes from './Modal.module.css';
 function OverLay(props){
     return(
         <React.Fragment>
-        <div id="myModal" className={classes.backdrop}></div>
+        <div id="myModal" className={classes.backdrop} onClick={props.click}></div>
         <div className={classes.modal}>
        {props.children}
         </div>

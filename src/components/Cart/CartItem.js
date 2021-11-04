@@ -8,7 +8,7 @@ function CartItem(props){
             
                 <li className={classes.cartItem}>
                     <ul>
-                        <li><img src={`./../../assets/${props.image}`} /></li>
+                        <li><img src={require(`./../../assets/${props.image}`).default} /></li>
                         <li>name:{props.name}</li>
                         <li>price:{props.price}$</li>
                         <li>Qty:{props.amount}</li>

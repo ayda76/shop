@@ -14,7 +14,8 @@ function DataContextProvider(props) {
                     name:data[key].name,
                     price:data[key].price,
                     type:data[key].type,
-                    image:data[key].image
+                    image:data[key].image,
+                    warhouse:data[key].warhouse
                   
                 })
             }
@@ -25,6 +26,7 @@ function DataContextProvider(props) {
     }, [])
 
    const returnValue={items:products}
+   
    return(
       <DataContext.Provider value={returnValue}>{props.children}</DataContext.Provider>  
     );
